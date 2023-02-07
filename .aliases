@@ -1,0 +1,36 @@
+# Python
+function py() {
+    python
+}
+
+# System
+alias ll='lsd -lh --group-dirs=first'
+alias la='lsd -a --group-dirs=first'
+alias l='lsd --group-dirs=first'
+alias lla='lsd -lha --group-dirs=first'
+alias ls='lsd --group-dirs=first'
+alias cat='bat'
+function cls(){
+    clear
+}
+
+function v() {
+    nvim
+}
+
+function relsh(){
+    source ~/.zshrc
+}
+
+# Set 'man' colors
+function man() {
+    env \
+    LESS_TERMCAP_mb=$'\e[01;31m' \
+    LESS_TERMCAP_md=$'\e[01;31m' \
+    LESS_TERMCAP_me=$'\e[0m' \
+    LESS_TERMCAP_se=$'\e[0m' \
+    LESS_TERMCAP_so=$'\e[01;44;33m' \
+    LESS_TERMCAP_ue=$'\e[0m' \
+    LESS_TERMCAP_us=$'\e[01;32m' \
+    man "$@"
+}
