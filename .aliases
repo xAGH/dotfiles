@@ -4,14 +4,8 @@ function py() {
 }
 
 # System
-alias ll='lsd -lh --group-dirs=first'
-alias la='lsd -a --group-dirs=first'
-alias l='lsd --group-dirs=first'
-alias lla='lsd -lha --group-dirs=first'
-alias ls='lsd --group-dirs=first'
-alias cat='bat'
-function cls(){
-    clear
+function pac(){
+    sudo pacman "$@"
 }
 
 function v() {
@@ -22,7 +16,34 @@ function relsh(){
     source ~/.zshrc
 }
 
-# Set 'man' colors
+function ll(){
+    lsd -lh --group-dirs=first
+}
+
+function la(){
+    lsd -a --group-dirs=first
+}
+
+function l(){
+    lsd --group-dirs=first
+}
+
+function lla(){
+    lsd -lha --group-dirs=first
+}
+
+function ls(){
+    lsd --group-dirs=first
+}
+
+function cat(){
+    bat
+}
+
+function cls(){
+    clear
+}
+
 function man() {
     env \
     LESS_TERMCAP_mb=$'\e[01;31m' \
