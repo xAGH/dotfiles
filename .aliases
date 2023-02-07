@@ -1,6 +1,18 @@
 # Python
 function py() {
-    python
+    python "$@"
+}
+
+function cenv(){
+    py -m venv venv
+}
+
+function aenv(){
+    source venv/bin/activate
+}
+
+function denv() {
+    deactivate
 }
 
 # System
@@ -12,36 +24,12 @@ function v() {
     nvim
 }
 
-function relsh(){
-    source ~/.zshrc
-}
-
-function ll(){
-    lsd -lh --group-dirs=first
-}
-
-function la(){
-    lsd -a --group-dirs=first
-}
-
-function l(){
-    lsd --group-dirs=first
-}
-
-function lla(){
-    lsd -lha --group-dirs=first
-}
-
-function ls(){
-    lsd --group-dirs=first
-}
-
-function cat(){
-    bat
-}
-
 function cls(){
     clear
+}
+
+function relsh(){
+    source ~/.zshrc
 }
 
 function man() {
