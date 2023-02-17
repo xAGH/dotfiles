@@ -75,3 +75,12 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 # Aliases
 [[ -f ~/.aliases ]] && source ~/.aliases
 
+# ASDF Completions
+fpath=(${ASDF_DIR}/completions $fpath)
+autoload -Uz compinit && compinit
+
+. "$HOME/.asdf/asdf.sh"
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
