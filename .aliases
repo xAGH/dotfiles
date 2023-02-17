@@ -28,6 +28,10 @@ function cls(){
     clear
 }
 
+function aliases(){
+    nvim ~/Code/dotfiles/.aliases
+}
+
 function relsh(){
     source ~/.zshrc
 }
