@@ -20,6 +20,10 @@ function pac(){
     sudo pacman "$@"
 }
 
+function calc(){
+    echo $(("$@"))
+}
+
 function v() {
     nvim "$@"
 }
