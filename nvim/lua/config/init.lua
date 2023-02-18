@@ -1,3 +1,10 @@
-require "config.nvim_tree"
-require "config.which_key"
-require "config.mason"
+local plugins_path = "./lua/config/"
+local cmd = io.popen("ls " .. plugins_path)
+local result = cmd:read("*a")
+cmd:close()
+
+for str in string.gmatch(result, "([^\n]+)") do
+    if str ~= "init.lua" then
+        require ("config." .. string.sub(str,0, -5))
+    end
+end
