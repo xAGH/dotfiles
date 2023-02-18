@@ -9,7 +9,9 @@ return require('packer').startup(function(use)
     use "folke/which-key.nvim" -- Helps with keys mapping
     use 'nvim-lualine/lualine.nvim' -- Provides a status bar
     use 'numToStr/Comment.nvim' -- Helps to comment
+    use 'nanozuki/tabby.nvim'
     use "lukas-reineke/indent-blankline.nvim" -- Helps to see the identation in blank spaces
+    use "mhinz/vim-startify"
     use {
         'nvim-treesitter/nvim-treesitter', -- Code highlighting
         run = ":TSUpdate"
