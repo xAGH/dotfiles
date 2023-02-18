@@ -1,4 +1,4 @@
-local plugins_path = "./lua/config/"
+local plugins_path = "$HOME/.config/nvim/lua/config/"
 local cmd = io.popen("ls " .. plugins_path)
 local result = cmd:read("*a")
 cmd:close()
