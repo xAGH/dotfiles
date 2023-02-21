@@ -6,14 +6,14 @@ set({"i"}, "<C-BS>", "<Esc>ciw") -- Ctrl-Backspace as delete cursor word
 -- Telescope 
 api_set(
     "n",
-    "<C-p>",
+    "<leader>p",
     ":Telescope git_files<CR>",
-    { noremap = true }
+{ noremap = true }
 )
 
 api_set(
     "n",
-    "<C-b>",
+    "<leader>b",
     ":NvimTreeToggle<CR>",
     { noremap = true }
 )

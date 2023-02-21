@@ -79,8 +79,11 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 fpath=(${ASDF_DIR}/completions $fpath)
 autoload -Uz compinit && compinit
 
-. "$HOME/.asdf/asdf.sh"
+# ASDF Configurations
+. "$HOME/.asdf/asdf.sh" # ASDF
+. "$HOME/.asdf/plugins/java/set-java-home.zsh" # Java
 
 
 # Load Angular CLI autocompletion.
 source <(ng completion script)
+
