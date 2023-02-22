@@ -20,4 +20,5 @@ return require('packer').startup(function(use)
         'nvim-telescope/telescope.nvim', -- Search files
         requires = { {'nvim-lua/plenary.nvim'} } -- Easy functions writting
     }
+    use 'neovim/nvim-lspconfig' -- Configurations for Nvim LSP
 end)

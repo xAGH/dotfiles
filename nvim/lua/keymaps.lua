@@ -1,19 +1,19 @@
 local set = vim.keymap.set
 local api_set = vim.api.nvim_set_keymap 
 
-set({"i"}, "<C-BS>", "<Esc>ciw") -- Ctrl-Backspace as delete cursor word 
+set({"i", "x"}, "<C-BS>", "<Esc>ciw") -- Ctrl-Backspace as delete cursor word 
 
 -- Telescope 
 api_set(
     "n",
-    "<leader>p",
+    "<C-p>",
     ":Telescope git_files<CR>",
 { noremap = true }
 )
 
 api_set(
     "n",
-    "<leader>b",
+    "<C-b>",
     ":NvimTreeToggle<CR>",
     { noremap = true }
 )
