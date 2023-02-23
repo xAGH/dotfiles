@@ -139,11 +139,6 @@ _G.packer_plugins = {
     path = "/home/alejo/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
-  ["vim-startify"] = {
-    loaded = true,
-    path = "/home/alejo/.local/share/nvim/site/pack/packer/start/vim-startify",
-    url = "https://github.com/mhinz/vim-startify"
-  },
   ["vim-surround"] = {
     loaded = true,
     path = "/home/alejo/.local/share/nvim/site/pack/packer/start/vim-surround",
