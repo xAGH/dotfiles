@@ -22,7 +22,6 @@ return require('packer').startup(function(use)
     use 'numToStr/Comment.nvim' -- Helps to comment
     use 'nanozuki/tabby.nvim'
     use 'lukas-reineke/indent-blankline.nvim' -- Helps to see the identation in blank spaces
-    use 'mhinz/vim-startify'
     use {
         'nvim-treesitter/nvim-treesitter', -- Code highlighting
         run = ':TSUpdate'
@@ -37,6 +36,4 @@ return require('packer').startup(function(use)
     if packer_bootstrap then
         require('packer').sync()
     end
-    print(packer_bootstrap)
-
 end)
