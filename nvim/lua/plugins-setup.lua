@@ -9,14 +9,22 @@ local ensure_packer = function()
   return false
 end
 
+-- autocommand that reloads neovim and installs/updates/removes plugins
+-- when file is saved
+vim.cmd([[ 
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins-setup.lua source <afile> | PackerSync
+  augroup end
+]])
+
 local packer_bootstrap = ensure_packer()
 
 return require('packer').startup(function(use)
-    use 'wbthomason/packer.nvim' -- Install Plugins
     use 'williamboman/mason.nvim' -- Install LSPs
     use 'navarasu/onedark.nvim' -- One Dark Theme
     use 'nvim-tree/nvim-tree.lua' -- File explorer
-    use 'nvim-tree/nvim-web-devicons' -- Icons
+    use 'kyazdani42/nvim-web-devicons' -- Icons
     use 'folke/which-key.nvim' -- Helps with keys mapping
     use 'nvim-lualine/lualine.nvim' -- Provides a status bar
     use 'numToStr/Comment.nvim' -- Helps to comment
