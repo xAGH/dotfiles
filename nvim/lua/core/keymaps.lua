@@ -15,10 +15,10 @@ vim.g.maplocalleader = ' '
 map('i', '<C-BS>', '<Esc>ciw') 
 
 -- Disabled keys
-map('', '<up>', '<nop>')
-map('', '<down>', '<nop>')
-map('', '<left>', '<nop>')
-map('', '<right>', '<nop>')
+-- map('', '<up>', '<nop>')
+-- map('', '<down>', '<nop>')
+-- map('', '<left>', '<nop>')
+-- map('', '<right>', '<nop>')
 map('n', 'q', '<nop>')
 map('n', 'Q', '<nop>')
 
