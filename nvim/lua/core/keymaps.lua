@@ -46,7 +46,10 @@ map('n', '<F2>', ':set invpaste paste?<CR>')
 
 -- Telescope 
 map('n', '<leader>p', ':Telescope find_files<CR>')
+
+-- Nvim Tree
 map('n', '<leader>b', ':NvimTreeToggle<CR>')
+map('n', '<leader>v', ':NvimTreeFocus<CR>')
 
 -- Replace selected word
 map("n", "<leader>g", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
