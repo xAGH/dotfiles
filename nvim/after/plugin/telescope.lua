@@ -1,4 +1,11 @@
-require('telescope').setup{
+-- Safely import
+local setup, telescope = pcall(require, 'telescope')
+if not setup then
+    return
+end
+
+-- Setup
+telescope.setup{
     
     defaults = {
         file_ignore_patterns = {

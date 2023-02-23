@@ -1,8 +1,13 @@
+-- Safely import
+local setup, tabby = pcall(require, 'tabby.tabline')
+if not setup then
+    return
+end
+
 vim.o.showtabline = 2
 
 local theme = {
   fill = 'TabLineFill',
-  -- Also you can do this: fill = { fg='#f2e9de', bg='#907aa9', style='italic' }
   head = 'TabLine',
   current_tab = 'TabLineSel',
   tab = 'TabLine',
@@ -10,13 +15,13 @@ local theme = {
   tail = 'TabLine',
 }
 
+-- Set separators icons
 local sep = {
     start = "",
     final = ""
 }
 
-
-require('tabby.tabline').set(function(line)
+tabby.set(function(line)
   return {
     {
       { '  ', hl = theme.head },
