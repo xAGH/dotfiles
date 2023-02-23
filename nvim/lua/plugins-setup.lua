@@ -1,27 +1,27 @@
 local ensure_packer = function()
-  local fn = vim.fn
-  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-  if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-    vim.cmd [[packadd packer.nvim]]
-    return true
-  end
-  return false
+    local fn = vim.fn
+    local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+    if fn.empty(fn.glob(install_path)) > 0 then
+        fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+        vim.cmd [[packadd packer.nvim]]
+        return true
+    end
+    return false
 end
 
 -- autocommand that reloads neovim and installs/updates/removes plugins
 -- when file is saved
 vim.cmd([[ 
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins-setup.lua source <afile> | PackerSync
-  augroup end
+augroup packer_user_config
+autocmd!
+autocmd BufWritePost plugins-setup.lua source <afile> | PackerSync
+augroup end
 ]])
 
 local packer_bootstrap = ensure_packer()
 
 return require('packer').startup(function(use)
-    use 'williamboman/mason.nvim' -- Install LSPs
+    use("wbthomason/packer.nvim")
     use 'navarasu/onedark.nvim' -- One Dark Theme
     use 'nvim-tree/nvim-tree.lua' -- File explorer
     use 'kyazdani42/nvim-web-devicons' -- Icons
@@ -30,6 +30,16 @@ return require('packer').startup(function(use)
     use 'numToStr/Comment.nvim' -- Helps to comment
     use 'nanozuki/tabby.nvim'
     use 'lukas-reineke/indent-blankline.nvim' -- Helps to see the identation in blank spaces
+    use 'tpope/vim-surround' -- Surround selected word with the specified characte
+    use 'onsails/lspkind.nvim' 
+    use "hrsh7th/nvim-cmp" -- completion plugin
+    use "hrsh7th/cmp-buffer" -- source for text in buffer
+    use "hrsh7th/cmp-path" -- source for file system paths
+    use "L3MON4D3/LuaSnip" -- snippet engine
+    use "saadparwaiz1/cmp_luasnip" -- for autocompletion
+    use "rafamadriz/friendly-snippets" -- useful snippets
+    use "windwp/nvim-autopairs" -- autoclose parens, brackets, quotes, etc...
+    use "windwp/nvim-ts-autotag" -- autoclose tags
     use {
         'nvim-treesitter/nvim-treesitter', -- Code highlighting
         run = ':TSUpdate'
@@ -38,8 +48,24 @@ return require('packer').startup(function(use)
         'nvim-telescope/telescope.nvim', -- Search files
         requires = { {'nvim-lua/plenary.nvim'} } -- Easy functions writting
     }
-    use 'neovim/nvim-lspconfig' -- Configurations for Nvim LSP
-    use 'tpope/vim-surround' -- Surround selected word with the specified characte
+
+    -- LSP config
+    use("williamboman/mason.nvim") -- in charge of managing lsp servers, linters & formatters
+    use("williamboman/mason-lspconfig.nvim") -- bridges gap b/w mason & lspconfig
+    use("neovim/nvim-lspconfig") -- easily configure language servers
+
+    use("jayp0521/mason-null-ls.nvim") -- bridges gap b/w mason & null-ls
+    use("jose-elias-alvarez/null-ls.nvim") -- configure formatters & linters 
+    use("jose-elias-alvarez/typescript.nvim") -- additional functionality for typescript server (e.g. rename file & update imports)
+    use("hrsh7th/cmp-nvim-lsp") -- for autocompletion
+    use({
+        "glepnir/lspsaga.nvim",
+        branch = "main",
+        requires = {
+            { "nvim-tree/nvim-web-devicons" },
+            { "nvim-treesitter/nvim-treesitter" },
+        },
+    }) -- enhanced lsp uis
 
     if packer_bootstrap then
         require('packer').sync()
