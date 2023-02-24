@@ -4,6 +4,8 @@ if not setup then
   return
 end
 
+vim.g.nvim_tree_disable_netrw = 0
+vim.g.nvim_tree_hijack_netrw = 0
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 

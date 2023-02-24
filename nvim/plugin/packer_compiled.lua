@@ -189,6 +189,11 @@ _G.packer_plugins = {
     path = "/home/alejo/.local/share/nvim/site/pack/packer/start/onedark.nvim",
     url = "https://github.com/navarasu/onedark.nvim"
   },
+  ["open-browser.vim"] = {
+    loaded = true,
+    path = "/home/alejo/.local/share/nvim/site/pack/packer/start/open-browser.vim",
+    url = "https://github.com/tyru/open-browser.vim"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/alejo/.local/share/nvim/site/pack/packer/start/packer.nvim",
