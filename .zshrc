@@ -83,7 +83,3 @@ autoload -Uz compinit && compinit
 . "$HOME/.asdf/asdf.sh" # ASDF
 . "$HOME/.asdf/plugins/java/set-java-home.zsh" # Java
 
-
-# Load Angular CLI autocompletion.
-source <(ng completion script)
-
