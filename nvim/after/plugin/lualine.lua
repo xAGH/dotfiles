@@ -1,6 +1,8 @@
 -- Safely import
-local setup, lualine = pcall(require, 'lualine')
+local plugin = 'lualine'
+local setup, lualine = pcall(require, plugin)
 if not setup then
+    vim.g.noti(plugin)
     return
 end
 

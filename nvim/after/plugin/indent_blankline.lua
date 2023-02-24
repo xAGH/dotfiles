@@ -1,6 +1,8 @@
 -- Safely import
-local setup, indent_blankline = pcall(require, 'indent_blankline')
+local plugin = 'indent_blankline'
+local setup, indent_blankline = pcall(require, plugin)
 if not setup then
+    vim.g.noti(plugin)
     return
 end
 

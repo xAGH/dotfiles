@@ -1,6 +1,8 @@
 -- Safely import
-local setup, tabby = pcall(require, 'tabby.tabline')
+local plugin = 'tabby.tabline'
+local setup, tabby = pcall(require, plugin)
 if not setup then
+    vim.g.noti(plugin)
     return
 end
 

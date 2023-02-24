@@ -1,6 +1,8 @@
 -- Safely import
-local setup, whichkey = pcall(require, 'which-key')
+local plugin = 'which-key'
+local setup, whichkey = pcall(require, plugin)
 if not setup then
+    vim.g.noti(plugin)
     return
 end
 

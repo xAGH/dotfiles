@@ -1,7 +1,9 @@
 -- Safely import
-local setup, comment = pcall(require, 'Comment')
+local plugin = 'Comment'
+local setup, comment = pcall(require, plugin)
 if not setup then
+    vim.g.noti(plugin)
     return
 end
 
-require('Comment').setup() 
+comment.setup()
