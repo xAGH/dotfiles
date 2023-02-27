@@ -60,3 +60,6 @@ map('n','<leader>nh',':noh<CR>')
 -- Tabs
 map('n', '<leader>t', ':tabnew ')
 
+local keymaps = {}
+table.insert(keymaps, map)
+return keymaps

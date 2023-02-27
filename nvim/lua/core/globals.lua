@@ -3,20 +3,12 @@ vim.g.noti = function(plugin)
     print(plugin .. ' is not installed')
 end
 
--- Language to install in LSP
-vim.g.languages = {
-    "python",
-    "java",
-    "javascript",
-    "typescript",
-    "lua",
-    "vim",
-    "help"
-}
-
--- Linters to install in LSP
-vim.g.linters = {
-    "prettier", -- ts/js formatter
-    "stylua", -- lua formatter
-    "eslint_d", -- ts/js linter
-}
+vim.g.ensure_installed = function(plugin)
+    local setup, installed = pcall(require, plugin)
+    if not setup then
+        print(plugin .. ' is not installed')
+        return false
+    else 
+        return installed
+    end
+end
