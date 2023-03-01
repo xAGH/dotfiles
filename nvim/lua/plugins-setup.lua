@@ -41,10 +41,7 @@ return require('packer').startup(function(use)
     use 'onsails/lspkind.nvim' -- Autocompletion 
     use 'windwp/nvim-ts-autotag' -- autoclose tags
     use 'nvim-treesitter/nvim-treesitter' -- Code highlighting
-    use {
-        'navarasu/onedark.nvim', -- One Dark Theme 
-        run = "colorscheme onedark" -- Setting the colorscheme
-    }
+    use 'navarasu/onedark.nvim' -- One Dark Theme 
     use {
         'nvim-telescope/telescope.nvim', -- Search files
         requires = { {'nvim-lua/plenary.nvim'} } -- Easy functions writting

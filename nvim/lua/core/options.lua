@@ -1,5 +1,8 @@
 local opt = vim.opt
 
+-- Colorscheme
+vim.cmd('colorscheme onedark')
+
 -- Line numbers
 opt.number = true
 opt.relativenumber = true
