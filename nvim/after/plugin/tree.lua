@@ -1,10 +1,6 @@
 -- Safely import
-local plugin = 'nvim-tree'
-local setup, tree = pcall(require, plugin)
-if not setup then
-    vim.g.noti(plugin)
-    return
-end
+local tree = vim.g.ensure_installed('nvim-tree')
+if not tree then return end
 
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
@@ -35,7 +31,6 @@ tree.setup({
 
 
 -- Open nvim-tree on setup
-
 local function open_nvim_tree(data)
     -- buffer is a [No Name]
     local no_name = data.file == "" and vim.bo[data.buf].buftype == ""

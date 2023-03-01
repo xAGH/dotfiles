@@ -1,10 +1,6 @@
 -- Safely import
-local plugin = 'indent_blankline'
-local setup, indent_blankline = pcall(require, plugin)
-if not setup then
-    vim.g.noti(plugin)
-    return
-end
+local indent_blankline = vim.g.ensure_installed('indent_blankline')
+if not indent_blankline then return end
 
 vim.opt.list = true
 vim.opt.listchars:append "eol:↴"

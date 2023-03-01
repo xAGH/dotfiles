@@ -1,9 +1,5 @@
 -- Safely import
-local plugin = 'which-key'
-local setup, whichkey = pcall(require, plugin)
-if not setup then
-    vim.g.noti(plugin)
-    return
-end
+local whichkey = vim.g.ensure_installed('which-key')
+if not whichkey then return end
 
 whichkey.setup()

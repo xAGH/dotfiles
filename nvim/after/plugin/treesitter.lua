@@ -1,14 +1,26 @@
 -- Safely import
-local plugin = 'nvim-treesitter.configs'
-local setup, treesitter = pcall(require, plugin)
-if not setup then
-    vim.g.noti(plugin)
-    return
-end
+local treesitter = vim.g.ensure_installed('nvim-treesitter.configs')
+if not treesitter then return end
 
 -- Setup
 treesitter.setup {
-    ensure_installed = vim.g.languages,
+    ensure_installed = {
+        'comment',
+        'css',
+        'dockerfile',
+        'gitcommit',
+        'gitignore',
+        'html',
+        'java',
+        'javascript',
+        'json',
+        'markdown',
+        'python',
+        'regex',
+        'scss',
+        'sql',
+        'typescript'
+    },
     sync_install = true,
     auto_install = true,
     ignore_install = {  },

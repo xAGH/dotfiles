@@ -1,26 +1,10 @@
--- import nvim-cmp plugin safely
-local plugin = 'cmp'
-local cmp_status, cmp = pcall(require, plugin)
-if not cmp_status then
-    vim.g.noti(plugin)
-    return
-end
+local is_installed = vim.g.ensure_installed
 
--- import luasnip plugin safely
-plugin = 'luasnip'
-local luasnip_status, luasnip = pcall(require, plugin)
-if not luasnip_status then
-    vim.g.noti(plugin)
-  return
-end
-
--- import lspkind plugin safely
-plugin = 'lspkind'
-local lspkind_status, lspkind = pcall(require, plugin)
-if not lspkind_status then
-    vim.g.noti(plugin)
-  return
-end
+-- Safely imports
+local cmp = is_installed('cmp')
+local luasnip = is_installed('luasnip')
+local lspkind = is_installed('lspkind')
+if not (cmp and luasnip and lspkind) then return end
 
 -- load vs-code like snippets from plugins (e.g. friendly-snippets)
 require("luasnip/loaders/from_vscode").lazy_load()

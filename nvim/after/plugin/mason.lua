@@ -3,16 +3,11 @@ local is_installed = vim.g.ensure_installed
 
 -- Safely import
 local mason = is_installed('mason')
-if not mason then return end
-
 local mason_lspconfig = is_installed('mason-lspconfig')
-if not mason_lspconfig then return end
-
 local lspconfig = is_installed('lspconfig')
-if not lspconfig then return end
-
 local telescope = is_installed('telescope.builtin')
-if not telescope then return end
+
+if not (mason and mason_lspconfig and lspconfig and telescope) then return end
 
 -- Configurations
 mason.setup()

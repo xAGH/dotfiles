@@ -1,10 +1,6 @@
 -- Safely import
-local plugin = 'tabby.tabline'
-local setup, tabby = pcall(require, plugin)
-if not setup then
-    vim.g.noti(plugin)
-    return
-end
+local tabby = vim.g.ensure_installed('tabby.tabline')
+if not tabby then return end
 
 vim.o.showtabline = 2
 
