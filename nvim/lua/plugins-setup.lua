@@ -21,14 +21,14 @@ augroup end
 local packer_bootstrap = ensure_packer()
 
 return require('packer').startup(function(use)
-    use('wbthomason/packer.nvim')
-    use 'navarasu/onedark.nvim' -- One Dark Theme
+    use 'wbthomason/packer.nvim'
+
     use 'nvim-tree/nvim-tree.lua' -- File explorer
     use 'kyazdani42/nvim-web-devicons' -- Icons
     use 'folke/which-key.nvim' -- Helps with keys mapping
     use 'nvim-lualine/lualine.nvim' -- Provides a status bar
     use 'numToStr/Comment.nvim' -- Helps to comment
-    use 'nanozuki/tabby.nvim'
+    use 'nanozuki/tabby.nvim' -- Better tabs
     use 'lukas-reineke/indent-blankline.nvim' -- Helps to see the identation in blank spaces
     use 'tpope/vim-surround' -- Surround selected word with the specified characte
     use 'hrsh7th/nvim-cmp' -- completion plugin
@@ -40,20 +40,20 @@ return require('packer').startup(function(use)
     use 'windwp/nvim-autopairs' -- autoclose parens, brackets, quotes, etc...
     use 'onsails/lspkind.nvim' -- Autocompletion 
     use 'windwp/nvim-ts-autotag' -- autoclose tags
+    use 'nvim-treesitter/nvim-treesitter' -- Code highlighting
     use {
-        'nvim-treesitter/nvim-treesitter', -- Code highlighting
-        run = ':TSUpdate'
+        'navarasu/onedark.nvim', -- One Dark Theme 
+        run = "colorscheme onedark" -- Setting the colorscheme
     }
     use {
         'nvim-telescope/telescope.nvim', -- Search files
         requires = { {'nvim-lua/plenary.nvim'} } -- Easy functions writting
     }
-
     -- LSP config
     use {
-        'williamboman/mason.nvim',
-        'williamboman/mason-lspconfig.nvim',
-        'neovim/nvim-lspconfig'
+        'williamboman/mason.nvim', -- Lsp Manager
+        'williamboman/mason-lspconfig.nvim', -- Lsp configuration helper
+        'neovim/nvim-lspconfig' -- Nvim lsp configuration
     }
 
     if packer_bootstrap then
