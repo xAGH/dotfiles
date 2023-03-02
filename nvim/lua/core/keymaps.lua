@@ -11,23 +11,11 @@ end
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
--- Ctrl-Backspace as delete cursor word 
+-- Ctrl-Backspace as delete cursor word
 map('i', '<C-BS>', '<Esc>ciw')
 
--- Disabled keys
--- map('', '<up>', '<nop>')
--- map('', '<down>', '<nop>')
--- map('', '<left>', '<nop>')
--- map('', '<right>', '<nop>')
-map('n', 'q', '<nop>')
-map('n', 'Q', '<nop>')
-
--- Esc with kk 
+-- Esc with kk
 map('i', 'kk', '<Esc>')
-
--- Move selected cursor to up or down
-map('v', 'J', ':m ">+1<CR>gv=gv')
-map('v', 'K', ':m ">-2<CR>gv=gv')
 
 -- Reload configuration without restart nvim
 map('n', '<leader>r', ':so %<CR>')
@@ -41,10 +29,7 @@ map('n', '<C-j>', '<C-w>j')
 map('n', '<C-k>', '<C-w>k')
 map('n', '<C-l>', '<C-w>l')
 
--- Clipboard
-map('n', '<F2>', ':set invpaste paste?<CR>')
-
--- Telescope 
+-- Telescope
 map('n', '<leader>p', ':Telescope find_files<CR>')
 
 -- Nvim Tree
@@ -52,18 +37,16 @@ map('n', '<leader>b', ':NvimTreeToggle<CR>')
 map('n', '<leader>v', ':NvimTreeFocus<CR>')
 
 -- Replace selected word
-map("n", "<leader>g", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+map("n", "<leader>g", [[:%s/\<<C-r><C-w>\>//gI<Left><Left><Left>]])
 
 -- Hide highlighting
-map('n','<leader>nh',':noh<CR>')
+map('n', '<leader>nh', ':noh<CR>')
 
 -- Tabs
 map('n', '<leader>t', ':tabnew ')
 
 -- Lsp keymaps
-vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { noremap = true, silent = true })
 vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { noremap = true, silent = true })
-vim.keymap.set('n', 'K', vim.lsp.buf.hover, { noremap = true, silent = true })
 vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, { noremap = true, silent = true })
 vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, { noremap = true, silent = true })
@@ -75,30 +58,8 @@ vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, { noremap = true, 
 vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { noremap = true, silent = true })
 vim.keymap.set('n', 'gr', vim.lsp.buf.references, { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>f', function() vim.lsp.buf.format { async = true } end, { noremap = true, silent = true })
-
--- Dap keymaps
-vim.keymap.set('n', '<F5>', function() require('dap').continue() end)
-vim.keymap.set('n', '<F10>', function() require('dap').step_over() end)
-vim.keymap.set('n', '<F11>', function() require('dap').step_into() end)
-vim.keymap.set('n', '<F12>', function() require('dap').step_out() end)
-vim.keymap.set('n', '<Leader>br', function() require('dap').toggle_breakpoint() end)
-vim.keymap.set('n', '<Leader>Br', function() require('dap').set_breakpoint() end)
-vim.keymap.set('n', '<Leader>lp', function() require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end)
-vim.keymap.set('n', '<Leader>dr', function() require('dap').repl.open() end)
-vim.keymap.set('n', '<Leader>dl', function() require('dap').run_last() end)
-vim.keymap.set({'n', 'v'}, '<Leader>dh', function()
-    require('dap.ui.widgets').hover()
-end)
-vim.keymap.set({'n', 'v'}, '<Leader>dp', function()
-    require('dap.ui.widgets').preview()
-end)
-vim.keymap.set('n', '<Leader>df', function()
-    local widgets = require('dap.ui.widgets')
-    widgets.centered_float(widgets.frames)
-end)
-vim.keymap.set('n', '<Leader>ds', function()
-    local widgets = require('dap.ui.widgets')
-    widgets.centered_float(widgets.scopes)
-end)
-
+vim.api.nvim_create_autocmd('BufWritePre', {
+    callback = function()
+        vim.lsp.buf.format { async = true }
+    end
+})

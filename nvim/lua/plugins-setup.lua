@@ -54,12 +54,6 @@ return require('packer').startup(function(use)
 
     }
 
-    -- DAP(Debugger adapter protocol) config
-    use {
-        "jay-babu/mason-nvim-dap.nvim", -- Dap configuration bridge
-        "mfussenegger/nvim-dap", -- Nvim dap configuration
-    }
-
     if packer_bootstrap then
         require('packer').sync()
     end
