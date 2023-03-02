@@ -62,6 +62,7 @@ To configure nvim just type `nvim`. That will open nvim and automatically Lazy V
 | [Lspkind][Lspkind] | Provides autocompletion and suggestions |
 | [Nvim Ts Autotag][NvimTsAutotag] | Use treesitter to autoclose and autorename html tags |
 | [Betterterm][BetterTerm] | Better integrated terminal, like vscode |
+| [Fugitive][Fugitive] | Git CLI integration |
 
 [Packer]: https://github.com/wbthomason/packer.nvim
 [OneDark]: https://github.com/joshdick/onedark.vim
@@ -82,3 +83,4 @@ To configure nvim just type `nvim`. That will open nvim and automatically Lazy V
 [Lspkind]: https://github.com/onsails/lspkind.nvim
 [NvimTsAutotag]: https://github.com/windwp/nvim-ts-autotag
 [BetterTerm]: https://github.com/CRAG666/betterTerm.nvim
+[Fugitive]: https://github.com/tpope/vim-fugitive
