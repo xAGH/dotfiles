@@ -45,6 +45,7 @@ return require('packer').startup(function(use)
     use 'CRAG666/betterTerm.nvim' -- Better terminal emulator inside vim
     use 'nvim-lua/plenary.nvim'  -- Easy functions writting
     use 'nvim-telescope/telescope.nvim' -- Search file
+    use 'https://github.com/tpope/vim-fugitive' -- Git integration
 
     -- LSP config
     use {
