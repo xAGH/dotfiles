@@ -1,8 +1,8 @@
 local ensure_packer = function()
     local fn = vim.fn
-    local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+    local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
     if fn.empty(fn.glob(install_path)) > 0 then
-        fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+        fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
         vim.cmd [[packadd packer.nvim]]
         return true
     end
@@ -11,7 +11,7 @@ end
 
 -- autocommand that reloads neovim and installs/updates/removes plugins
 -- when file is saved
-vim.cmd([[ 
+vim.cmd([[
 augroup packer_user_config
 autocmd!
 autocmd BufWritePost plugins-setup.lua source <afile> | PackerSync
@@ -23,7 +23,6 @@ local packer_bootstrap = ensure_packer()
 return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
-    use 'nvim-tree/nvim-tree.lua' -- File explorer
     use 'kyazdani42/nvim-web-devicons' -- Icons
     use 'folke/which-key.nvim' -- Helps with keys mapping
     use 'nvim-lualine/lualine.nvim' -- Provides a status bar
@@ -38,17 +37,21 @@ return require('packer').startup(function(use)
     use 'saadparwaiz1/cmp_luasnip' -- for autocompletion
     use 'rafamadriz/friendly-snippets' -- useful snippets
     use 'windwp/nvim-autopairs' -- autoclose parens, brackets, quotes, etc...
-    use 'onsails/lspkind.nvim' -- Autocompletion 
+    use 'onsails/lspkind.nvim' -- Autocompletion
     use 'windwp/nvim-ts-autotag' -- autoclose tags
     use 'nvim-treesitter/nvim-treesitter' -- Code highlighting
-    use 'navarasu/onedark.nvim' -- One Dark Theme 
-    use 'williamboman/mason.nvim' -- Servers Manager
+    use 'navarasu/onedark.nvim' -- One Dark Theme
+    use 'CRAG666/betterTerm.nvim' -- Better terminal emulator inside vim
     use {
-        'nvim-telescope/telescope.nvim', -- Search files
-        requires = { {'nvim-lua/plenary.nvim'} } -- Easy functions writting
+        "nvim-telescope/telescope-file-browser.nvim",
+        requires = {
+            'nvim-telescope/telescope.nvim', -- Search files
+            'nvim-lua/plenary.nvim' -- Easy functions writting
+        }
     }
     -- LSP config
     use {
+        'williamboman/mason.nvim', -- Servers Manager
         'williamboman/mason-lspconfig.nvim', -- Lsp configuration bridge
         'neovim/nvim-lspconfig', -- Nvim lsp configuration
 
@@ -58,4 +61,3 @@ return require('packer').startup(function(use)
         require('packer').sync()
     end
 end)
-
