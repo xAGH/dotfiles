@@ -10,14 +10,13 @@
 </h1>
 
 ----------
-Hi, here is my neovim configuration using [Lazy Vim](https://github.com/folke/lazy.nvim).
+Hi, here is my neovim configuration using [Packer](https://github.com/wbthomason/packer.nvim).
 
 ## Requisites
 You should have installed:
-> *__Note__: Requisites are taken from the package manager: [Lazy Vim](https://github.com/folke/lazy.nvim)*
+> *__Note__: Requisites are taken from the package manager: [Packer](hhttps://github.com/wbthomason/packer.nvim)*
 
-* NeoVim version >= 0.8.0
-* Git version >= 2.19.0
+* NeoVim version >= 0.5.0
 * _Optional_: A nerd font for icons
 
 <h2 id="install">Instalation</h2>
@@ -44,7 +43,7 @@ To configure nvim just type `nvim`. That will open nvim and automatically Lazy V
 
 | Plugin   | Description|
 |:--------------- | :--------------- |
-| [Lazy Vim][LazyVim] | Lazy plugin manager for NeoVim |
+| [Packer][Packer] | Plugin manager for NeoVim |
 | [OneDark][OneDark] | Dark colorscheme |
 | [Nvim Tree][NvimTree] | Vscode style file explorer |
 | [Nvim Web Devicons][DevIcons]   | Provide icons |
@@ -63,7 +62,7 @@ To configure nvim just type `nvim`. That will open nvim and automatically Lazy V
 | [Lspkind][Lspkind] | Provides autocompletion and suggestions |
 | [Nvim Ts Autotag][NvimTsAutotag] | Use treesitter to autoclose and autorename html tag |
 
-[LazyVim]: https://github.com/folke/lazy.nvim
+[Packer]: https://github.com/wbthomason/packer.nvim
 [OneDark]: https://github.com/joshdick/onedark.vim
 [NvimTree]: https://github.com/nvim-tree/nvim-tree.lua
 [DevIcons]: https://github.com/kyazdani42/nvim-web-devicons
