@@ -15,7 +15,7 @@ vim.g.maplocalleader = ' '
 -- Ctrl-Backspace as delete cursor word
 map('i', '<C-BS>', '<Esc>ciw')
 
-map('n', '<C-n>', ':e %:p:h/')
+map('n', '<leader>n', ':e %:p:h/')
 
 -- Esc with kk
 map('i', 'kk', '<Esc>')
@@ -40,26 +40,17 @@ map('n', '<leader>b', ':NvimTreeToggle<CR>')
 map('n', '<leader>v', ':NvimTreeFocus<CR>')
 
 -- Replace selected word
-map("n", "<leader>g", [[:%s/\<<C-r><C-w>\>//gI<Left><Left><Left>]])
+map('n', '<leader>g', [[:%s/\<<C-r><C-w>\>//gI<Left><Left><Left>]])
 
 -- Hide highlighting
 map('n', '<leader>nh', ':noh<CR>')
-
--- Tabs
-map('n', '<leader>t', ':tabnew ')
 
 -- Lsp keymaps
 vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { noremap = true, silent = true })
 vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, { noremap = true, silent = true })
 vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, { noremap = true, silent = true })
-vim.keymap.set('n', '<leader>wl', function()
-    print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-end, { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { noremap = true, silent = true })
 vim.keymap.set('n', 'gr', vim.lsp.buf.references, { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>f', function() vim.lsp.buf.format { async = true } end, { noremap = true, silent = true })
-
