@@ -1,4 +1,3 @@
-local set = require('core.keymaps').map
 local is_installed = vim.g.ensure_installed
 
 -- Safely import
@@ -14,31 +13,90 @@ mason.setup()
 mason_lspconfig.setup(
 {
     ensure_installed = {
-        -- "css_lsp",
-        -- "docker-compose-language-service",
-        -- "dockerfile-language-server",
-        -- "lua-language-server", 
+        'angularls', -- Angular
+        'cssls',-- Css
+        'dockerls', -- Dockerfile
+        'docker_compose_language_service', -- Docker Compose
+        'emmet_ls', -- Html snippets
+        'eslint', -- Js and Ts formatter
+        'html', --HTML
+        'jdtls', -- Java
+        'jsonls', -- Json
+        'lua_ls', -- Lua
+        'marksman', -- Markdown
+        'pyre', -- Python
+        'tsserver', -- Typescript
+        'yamlls', -- Yaml
     }
 }
 )
 
 -- Auto lsp setup
-local lsp = vim.lsp.buf
 mason_lspconfig.setup_handlers {
     function (server_name)
-        lspconfig[server_name].setup {
-            set('n', '<leader>rn', lsp.rename),
-            set('n', '<leader>ca', lsp.code_action),
-
-            set('n', 'gd', lsp.definition),
-            set('n', 'gi', lsp.implementation),
-            set('n', 'gp', telescope.lsp_references),
-            set('n', 'K', lsp.hover)
-        }
+        lspconfig[server_name].setup {}
     end,
 
     -- Custom setups
-    -- ["rust_analyzer"] = function ()
-        -- require("rust-tools").setup {}
-        -- end
-    }
+    ['eslint'] = function()
+        lspconfig.eslint.setup {
+            on_attach = function(_, bufnr)
+                vim.api.nvim_create_autocmd('BufWritePre', {
+                    buffer = bufnr,
+                    command = 'EslintFixAll',
+                })
+            end,
+        }
+    end,
+
+    ['jsonls'] = function()
+        local cap = vim.lsp.protocol.make_client_capabilities()
+        cap.textDocument.completion.completionItem.snippetSupport = true
+        lspconfig.jsonls.setup {
+            capabilities = cap
+        }
+    end,
+
+    ['jdtls'] = function()
+        lspconfig.jdtls.setup{ cmd = { 'jdtls' } }
+    end,
+
+    ['lua_ls'] = function ()
+        lspconfig.lua_ls.setup{
+            settings = {
+                Lua = {
+                    runtime = {
+                        -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+                        version = 'LuaJIT',
+                    },
+                    diagnostics = {
+                        -- Get the language server to recognize the `vim` global
+                        globals = {'vim'},
+                    },
+                    workspace = {
+                        -- Make the server aware of Neovim runtime files
+                        library = vim.api.nvim_get_runtime_file("", true),
+                    },
+                    -- Do not send telemetry data containing a randomized but unique identifier
+                    telemetry = {
+                        enable = false,
+                    },
+                },
+            },
+        }
+    end,
+
+    ['yamlls'] = function()
+        lspconfig.yamlls.setup {
+            settings = {
+                yaml = {
+                    schemas = {
+                        ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
+                        ["../path/relative/to/file.yml"] = "/.github/workflows/*",
+                        ["/path/from/root/of/project"] = "/.github/workflows/*",
+                    },
+                },
+            }
+        }
+    end,
+}

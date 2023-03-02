@@ -1,5 +1,5 @@
 -- Function to make easier create keymaps
-local function map(mode, keymap, action, opts)
+function map(mode, keymap, action, opts)
     local options = { noremap = true, silent = true }
     if opts then
         options = vim.tbl_extend('force', options, opts)
@@ -60,6 +60,19 @@ map('n','<leader>nh',':noh<CR>')
 -- Tabs
 map('n', '<leader>t', ':tabnew ')
 
-local keymaps = {}
-table.insert(keymaps, map)
-return keymaps
+-- Lsp keymaps
+vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { noremap = true, silent = true }),
+vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { noremap = true, silent = true }),
+vim.keymap.set('n', 'K', vim.lsp.buf.hover, { noremap = true, silent = true }),
+vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, { noremap = true, silent = true }),
+vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, { noremap = true, silent = true }),
+vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, { noremap = true, silent = true }),
+vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, { noremap = true, silent = true }),
+vim.keymap.set('n', '<leader>wl', function()
+    print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+end, { noremap = true, silent = true }),
+vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, { noremap = true, silent = true }),
+vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, { noremap = true, silent = true }),
+vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { noremap = true, silent = true }),
+vim.keymap.set('n', 'gr', vim.lsp.buf.references, { noremap = true, silent = true }),
+vim.keymap.set('n', '<leader>f', function() vim.lsp.buf.format { async = true } end, { noremap = true, silent = true }),
