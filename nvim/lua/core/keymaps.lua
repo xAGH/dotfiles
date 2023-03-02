@@ -11,10 +11,11 @@ end
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
-map('n', '<C-n>', '')
 
 -- Ctrl-Backspace as delete cursor word
 map('i', '<C-BS>', '<Esc>ciw')
+
+map('n', '<C-n>', ':e %:p:h/')
 
 -- Esc with kk
 map('i', 'kk', '<Esc>')
@@ -33,7 +34,10 @@ map('n', '<C-l>', '<C-w>l')
 
 -- Telescope
 map('n', '<leader>p', ':Telescope find_files<CR>')
+
+-- Nvim tree
 map('n', '<leader>b', ':NvimTreeToggle<CR>')
+map('n', '<leader>v', ':NvimTreeFocus<CR>')
 
 -- Replace selected word
 map("n", "<leader>g", [[:%s/\<<C-r><C-w>\>//gI<Left><Left><Left>]])
@@ -58,3 +62,4 @@ vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, { noremap = true, silent =
 vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { noremap = true, silent = true })
 vim.keymap.set('n', 'gr', vim.lsp.buf.references, { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>f', function() vim.lsp.buf.format { async = true } end, { noremap = true, silent = true })
+
