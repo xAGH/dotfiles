@@ -21,7 +21,7 @@ map('i', 'kk', '<Esc>')
 map('n', '<leader>r', ':so %<CR>')
 
 -- Close all windows and exit from Neovim with <leader> and q
-map('n', '<leader>q', ':wqall<CR>')
+map('n', '<leader>q', ':wq<CR>')
 
 -- Move around splits using Ctrl + movement keys
 map('n', '<C-h>', '<C-w>h')
