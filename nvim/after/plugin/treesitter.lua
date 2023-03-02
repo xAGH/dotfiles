@@ -4,6 +4,9 @@ if not treesitter then return end
 
 -- Setup
 treesitter.setup {
+    auto_tag = {
+        enabled = true,
+    },
     ensure_installed = {
         'comment',
         'css',
@@ -28,3 +31,5 @@ treesitter.setup {
         enable = true,
     },
 }
+
+

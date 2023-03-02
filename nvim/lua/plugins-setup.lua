@@ -23,6 +23,7 @@ local packer_bootstrap = ensure_packer()
 return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
+    use 'nvim-tree/nvim-tree.lua' -- File explorer
     use 'kyazdani42/nvim-web-devicons' -- Icons
     use 'folke/which-key.nvim' -- Helps with keys mapping
     use 'nvim-lualine/lualine.nvim' -- Provides a status bar
@@ -43,11 +44,8 @@ return require('packer').startup(function(use)
     use 'navarasu/onedark.nvim' -- One Dark Theme
     use 'CRAG666/betterTerm.nvim' -- Better terminal emulator inside vim
     use {
-        "nvim-telescope/telescope-file-browser.nvim",
-        requires = {
-            'nvim-telescope/telescope.nvim', -- Search files
-            'nvim-lua/plenary.nvim' -- Easy functions writting
-        }
+        'nvim-telescope/telescope.nvim', -- Search files
+        requires = { { 'nvim-lua/plenary.nvim' } } -- Easy functions writting
     }
     -- LSP config
     use {

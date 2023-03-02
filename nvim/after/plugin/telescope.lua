@@ -9,12 +9,4 @@ telescope.setup {
             'node_modules'
         },
     },
-    extensions = {
-        file_bwoser = {
-            theme = 'ivy',
-            hijack_netrw = true,
-        }
-    }
 }
-
-require("telescope").load_extension "file_browser"

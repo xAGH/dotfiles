@@ -33,7 +33,7 @@ map('n', '<C-l>', '<C-w>l')
 
 -- Telescope
 map('n', '<leader>p', ':Telescope find_files<CR>')
-map('n', '<leader>b', ':Telescope file_browser<CR>')
+map('n', '<leader>b', ':NvimTreeToggle<CR>')
 
 -- Replace selected word
 map("n", "<leader>g", [[:%s/\<<C-r><C-w>\>//gI<Left><Left><Left>]])
