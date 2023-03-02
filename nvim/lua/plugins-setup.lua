@@ -42,15 +42,22 @@ return require('packer').startup(function(use)
     use 'windwp/nvim-ts-autotag' -- autoclose tags
     use 'nvim-treesitter/nvim-treesitter' -- Code highlighting
     use 'navarasu/onedark.nvim' -- One Dark Theme 
+    use 'williamboman/mason.nvim' -- Servers Manager
     use {
         'nvim-telescope/telescope.nvim', -- Search files
         requires = { {'nvim-lua/plenary.nvim'} } -- Easy functions writting
     }
     -- LSP config
     use {
-        'williamboman/mason.nvim', -- Lsp Manager
-        'williamboman/mason-lspconfig.nvim', -- Lsp configuration helper
-        'neovim/nvim-lspconfig' -- Nvim lsp configuration
+        'williamboman/mason-lspconfig.nvim', -- Lsp configuration bridge
+        'neovim/nvim-lspconfig', -- Nvim lsp configuration
+
+    }
+
+    -- DAP(Debugger adapter protocol) config
+    use {
+        "jay-babu/mason-nvim-dap.nvim", -- Dap configuration bridge
+        "mfussenegger/nvim-dap", -- Nvim dap configuration
     }
 
     if packer_bootstrap then

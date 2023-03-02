@@ -1,2 +1,2 @@
-require ("plugins-setup")
 require ("core")
+require ("plugins-setup")

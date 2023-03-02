@@ -1,3 +1,3 @@
-require('core.keymaps')
-require('core.options')
 require('core.globals')
+require('core.options')
+require('core.keymaps')
