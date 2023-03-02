@@ -60,7 +60,8 @@ To configure nvim just type `nvim`. That will open nvim and automatically Lazy V
 | [Friendly Snippets][FriendlySnippets] | More snippets... |
 | [Nvim Autopairs][NvimAutopairs] | A super powerful autopair plugin for Neovim that supports multiple characters |
 | [Lspkind][Lspkind] | Provides autocompletion and suggestions |
-| [Nvim Ts Autotag][NvimTsAutotag] | Use treesitter to autoclose and autorename html tag |
+| [Nvim Ts Autotag][NvimTsAutotag] | Use treesitter to autoclose and autorename html tags |
+| [Betterterm][BetterTerm] | Better integrated terminal, like vscode |
 
 [Packer]: https://github.com/wbthomason/packer.nvim
 [OneDark]: https://github.com/joshdick/onedark.vim
@@ -80,3 +81,4 @@ To configure nvim just type `nvim`. That will open nvim and automatically Lazy V
 [NvimAutopairs]: https://github.com/windwp/nvim-autopairs
 [Lspkind]: https://github.com/onsails/lspkind.nvim
 [NvimTsAutotag]: https://github.com/windwp/nvim-ts-autotag
+[BetterTerm]: https://github.com/CRAG666/betterTerm.nvim

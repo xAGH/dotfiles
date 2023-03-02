@@ -19,7 +19,3 @@ vim.keymap.set(
     end,
     { desc = 'New terminal'}
 )
-
-vim.keymap.set("n", "<leader>e", function()
-  require("betterTerm").send(require("code_runner.commands").get_filetype_command(), 1, { clean = false, interrupt = true })
-end, { desc = "Excute File"})

@@ -14,7 +14,7 @@ end
 vim.cmd([[
 augroup packer_user_config
 autocmd!
-autocmd BufWritePost packer.lua source <afile> | PackerSync
+autocmd BufWritePost plugins.lua source <afile> | PackerSync
 augroup end
 ]])
 
@@ -43,16 +43,14 @@ return require('packer').startup(function(use)
     use 'nvim-treesitter/nvim-treesitter' -- Code highlighting
     use 'navarasu/onedark.nvim' -- One Dark Theme
     use 'CRAG666/betterTerm.nvim' -- Better terminal emulator inside vim
-    use {
-        'nvim-telescope/telescope.nvim', -- Search files
-        requires = { { 'nvim-lua/plenary.nvim' } } -- Easy functions writting
-    }
+    use 'nvim-lua/plenary.nvim'  -- Easy functions writting
+    use 'nvim-telescope/telescope.nvim' -- Search file
+
     -- LSP config
     use {
         'williamboman/mason.nvim', -- Servers Manager
         'williamboman/mason-lspconfig.nvim', -- Lsp configuration bridge
         'neovim/nvim-lspconfig', -- Nvim lsp configuration
-
     }
 
     if packer_bootstrap then
